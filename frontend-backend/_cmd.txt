@@ -1,0 +1,5 @@
+kubectl apply -f application/be-deployment.yaml
+kubectl apply -f application/be-service.yaml
+
+get pod
+get services
