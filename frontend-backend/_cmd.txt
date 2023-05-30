@@ -1,5 +1,43 @@
+>minikube start
+>minikube dashboard --url=true
+
+
+kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+
+kubectl get services hello-minikube		-> get services list
+
+minikube service hello-minikube   		->  run service on browser
+
+kubectl port-forward service/hello-minikube 9090:8080		-> forward port  http://localhost:9090
+
+
+
+----------------
+minikube pause / urlnpause
+minikube stop
+minikube config set memory 9001
+
+Delete all of the minikube clusters:	minikube delete --all
+----------------
+
+
+
+
 kubectl apply -f application/be-deployment.yaml
 kubectl apply -f application/be-service.yaml
+
+kubectl apply -f application/fe-deployment.yaml
+
+--------- ingress tunnel load balance
+minikube tunnel
+kubectl apply -f application/fe-service.yaml
+kubectl expose service frontend --type=LoadBalancer --name=my-service
+
+--------- ingress nodeport nginx
+https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-manifests/
+---------
+
 
 get pod
 get services
